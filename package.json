@@ -1,0 +1,15 @@
+{
+  "name": "hexo-tag-graphviz",
+  "version": "1.0.0",
+  "description": "在hexo上使用graphviz",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["graphviz", "hexo", "hexo-tag", "hexo-tag-graphviz"],
+  "author": "QiuWeidong",
+  "license": "MIT",
+  "dependencies": {
+    "viz.js": "^2.1.2"
+  }
+}
