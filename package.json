@@ -1,5 +1,5 @@
 {
-  "name": "hexo-tag-graphviz",
+  "name": "hexo-graphviz-tag",
   "version": "1.0.0",
   "description": "在hexo上使用graphviz",
   "main": "main.js",
