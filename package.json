@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["graphviz", "hexo", "hexo-tag", "hexo-tag-graphviz"],
+  "keywords": ["graphviz", "hexo", "hexo-tag", "hexo-tag-graphviz", "hexo-graphviz-tag"],
   "author": "QiuWeidong",
   "license": "MIT",
   "dependencies": {
