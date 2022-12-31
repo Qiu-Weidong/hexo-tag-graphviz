@@ -7,7 +7,10 @@ let viz = new Viz({ Module, render });
 const graphvizTab = async (args, content) => {
 
     try {
-        const result = await viz.renderString(content);
+        let result = await viz.renderString(content);
+        // 将 svg 标签的 width 和 height 删掉，以便随窗口大小缩放。
+        let re = /<svg\s+width\s*=\s*"[^"]*"\s+height\s*=\s*"[^"]*"/;
+        result = result.replace(re, '<svg ');
         return `<div
                 style="margin: 0 0 20px; 
                 text-align: center;"
@@ -33,7 +36,5 @@ const graphvizTab = async (args, content) => {
 }
 
 hexo.extend.tag.register('graphviz', graphvizTab, { ends: true, async: true });
-
-
 
 
