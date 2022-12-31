@@ -11,6 +11,10 @@ const graphvizTab = async (args, content) => {
         // 将 svg 标签的 width 和 height 删掉，以便随窗口大小缩放。
         let re = /<svg\s+width\s*=\s*"[^"]*"\s+height\s*=\s*"[^"]*"/;
         result = result.replace(re, '<svg ');
+
+        // 修改 title 为 arg
+        re = /<title>.*?<\/title>/;
+        result = result.replace(re, `<title>${args}</title>`);
         return `<div
                 style="margin: 0 0 20px; 
                 text-align: center;"
