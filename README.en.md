@@ -10,25 +10,76 @@ installation method:
 ```bash
 npm i hexo-graphviz-tag
 ```
-After the installation is complete, you can use it the same as the general hexo tag plugin. The tag plugin has only one parameter, the title of the image.
+It was originally called `hexo-tag-graphviz`, but when it was released, it was found that `hexo-tag-graphviz` already existed, so it was renamed to `hexo-graphviz-tag`, so the name on github is different from the name on npm.
+
+After the installation is complete, you can use it the same as the general hexo tag plugin. The label plugin has three parameters, namely `title`, `align` and `maxWidth`.
+
+If only one anonymous argument is provided, it defaults to the image title `title`, as shown below, defining a directed graph named `mygraph`.
 ```
-{% graphviz image title %}
+{% graphviz mygraph %}
 digraph {
-     a -> b;
-     b -> c;
-     c -> d;
-     d -> e;
-     a -> e;
-     a -> f;
-     a -> g;
-     g -> f;
-     g -> k;
-     k -> f;
-     e -> f;
+   rankdir = LR;
+   node [shape=circle]
+   a -> b;
+   b -> c;
+   c -> d;
+   d -> e;
 }
 {% endgraphviz %}
 ```
-The effect under the default theme of hexo:
-![Screenshot](screenshot/screenshot.jpg)
-The effect under the butterfly theme:
-![Screenshot](screenshot/screenshot1.jpg)
+The display effect under the butterfly theme:
+![Screenshot 1](screenshot/screenshot2.jpg)
+
+`maxWidth` can set the maximum width. The default unit is `px`. As shown below, a directed graph with a maximum width of `300px` is defined.
+```
+{% graphviz title:mygraph maxWidth:300 %}
+digraph {
+   rankdir = LR;
+   node [shape=circle]
+   a -> b;
+   b -> d;
+   c -> b;
+   d -> a;
+   d -> c;
+   a -> c;
+   b -> e;
+}
+{% endgraphviz %}
+```
+![Display effect](screenshot/screenshot3.jpg)
+The `align` parameter can set the alignment of the image. There are three alignment methods, namely `center`, `left` and `right`, where `center` is the default alignment.
+
+Align left:
+```
+{% graphviz title:mygraph maxWidth:300 align:left %}
+digraph {
+   rankdir = LR;
+   node [shape=circle]
+   a -> b;
+   b -> d;
+   c -> b;
+   d -> a;
+   d -> c;
+   a -> c;
+   b -> e;
+}
+{% endgraphviz %}
+```
+![left alignment](screenshot/screenshot4.jpg)
+Align right:
+```
+{% graphviz title:mygraph maxWidth:300 align:left %}
+digraph {
+   rankdir = LR;
+   node [shape=circle]
+   a -> b;
+   b -> d;
+   c -> b;
+   d -> a;
+   d -> c;
+   a -> c;
+   b -> e;
+}
+{% endgraphviz %}
+```
+![Left alignment](screenshot/screenshot5.jpg)
